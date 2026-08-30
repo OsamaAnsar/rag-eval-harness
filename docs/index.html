@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>rag-eval-harness report</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #0b0f14;
+    --panel: #121822;
+    --border: #232c39;
+    --text: #e6edf3;
+    --muted: #8b98a5;
+    --good: #3fb950;
+    --warn: #d29922;
+    --bad: #f85149;
+    --na: #6e7681;
+  }
+  @media (prefers-color-scheme: light) {
+    :root {
+      --bg: #f6f8fa;
+      --panel: #ffffff;
+      --border: #d0d7de;
+      --text: #1f2328;
+      --muted: #59636e;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, "Segoe UI", Inter, Roboto, sans-serif;
+    padding: 2.5rem 1.5rem;
+  }
+  main { max-width: 960px; margin: 0 auto; }
+  h1 { font-size: 1.5rem; margin-bottom: 0.25rem; }
+  .subtitle { color: var(--muted); margin-top: 0; margin-bottom: 2rem; font-size: 0.9rem; }
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin-bottom: 2.5rem; }
+  .card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+  .card-label { color: var(--muted); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.03em; }
+  .card-score { font-size: 1.75rem; font-weight: 600; }
+  .card.good .card-score { color: var(--good); }
+  .card.warn .card-score { color: var(--warn); }
+  .card.bad .card-score { color: var(--bad); }
+  .card.na .card-score { color: var(--na); }
+  table { width: 100%; border-collapse: collapse; background: var(--panel); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+  th, td { text-align: left; padding: 0.65rem 0.85rem; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+  th { color: var(--muted); font-weight: 600; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.03em; }
+  tr:last-child td { border-bottom: none; }
+  td.good { color: var(--good); }
+  td.warn { color: var(--warn); }
+  td.bad { color: var(--bad); }
+  td.na { color: var(--na); }
+  footer { color: var(--muted); font-size: 0.8rem; margin-top: 2rem; }
+  a { color: inherit; }
+</style>
+</head>
+<body>
+<main>
+  <h1>rag-eval-harness</h1>
+  <p class="subtitle">LLM-judge evaluation report &middot; 3 items &middot; judge: FakeJudge (deterministic heuristic, zero-cost demo) &middot; generated 2026-08-30T19:20:52.044Z</p>
+  <div class="cards"><div class="card warn"><span class="card-label">Faithfulness</span><span class="card-score">66.7%</span></div><div class="card good"><span class="card-label">Answer Relevance</span><span class="card-score">96.3%</span></div><div class="card warn"><span class="card-label">Context Precision</span><span class="card-score">50.0%</span></div><div class="card warn"><span class="card-label">Context Recall</span><span class="card-score">66.7%</span></div></div>
+  <table>
+    <thead>
+      <tr><th>ID</th><th>Question</th><th>Faithfulness</th><th>Relevance</th><th>Precision</th><th>Recall</th></tr>
+    </thead>
+    <tbody><tr><td>q1</td><td>What port does the default HTTP server listen on?</td><td class="good">100.0%</td><td class="good">100.0%</td><td class="good">100.0%</td><td class="good">100.0%</td></tr><tr><td>q2</td><td>How does the retriever rank documents?</td><td class="good">100.0%</td><td class="good">100.0%</td><td class="warn">50.0%</td><td class="good">100.0%</td></tr><tr><td>q3</td><td>What database does the project use for vector storage?</td><td class="bad">0.0%</td><td class="good">88.9%</td><td class="bad">0.0%</td><td class="bad">0.0%</td></tr></tbody>
+  </table>
+  <footer><a href="https://github.com/OsamaAnsar/rag-eval-harness">github.com/OsamaAnsar/rag-eval-harness</a></footer>
+</main>
+</body>
+</html>

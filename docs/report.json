@@ -1,0 +1,134 @@
+{
+  "itemCount": 3,
+  "items": [
+    {
+      "id": "q1",
+      "question": "What port does the default HTTP server listen on?",
+      "metrics": {
+        "faithfulness": {
+          "score": 1,
+          "details": {
+            "verdicts": [
+              {
+                "claim": "By default, the HTTP server listens on port 3000.",
+                "supported": true
+              }
+            ]
+          }
+        },
+        "answerRelevance": {
+          "score": 1,
+          "details": {}
+        },
+        "contextPrecision": {
+          "score": 1,
+          "details": {
+            "relevance": [
+              true,
+              false
+            ]
+          }
+        },
+        "contextRecall": {
+          "score": 1,
+          "details": {
+            "verdicts": [
+              {
+                "claim": "The default HTTP server listens on port 3000 unless the PORT environment variable overrides it.",
+                "attributable": true
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "q2",
+      "question": "How does the retriever rank documents?",
+      "metrics": {
+        "faithfulness": {
+          "score": 1,
+          "details": {
+            "verdicts": [
+              {
+                "claim": "The retriever ranks documents using a hybrid approach: it combines BM25 keyword scores with dense embedding similarity, then reranks the top candidates with a cross-encoder model.",
+                "supported": true
+              }
+            ]
+          }
+        },
+        "answerRelevance": {
+          "score": 1,
+          "details": {}
+        },
+        "contextPrecision": {
+          "score": 0.5,
+          "details": {
+            "relevance": [
+              false,
+              true
+            ]
+          }
+        },
+        "contextRecall": {
+          "score": 1,
+          "details": {
+            "verdicts": [
+              {
+                "claim": "Retrieval combines BM25 and dense embedding similarity, and the top candidates are reranked with a cross-encoder.",
+                "attributable": true
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "id": "q3",
+      "question": "What database does the project use for vector storage?",
+      "metrics": {
+        "faithfulness": {
+          "score": 0,
+          "details": {
+            "verdicts": [
+              {
+                "claim": "The project stores vectors in Pinecone, a managed vector database service.",
+                "supported": false
+              }
+            ]
+          }
+        },
+        "answerRelevance": {
+          "score": 0.8888888888888888,
+          "details": {}
+        },
+        "contextPrecision": {
+          "score": 0,
+          "details": {
+            "relevance": [
+              false,
+              false
+            ]
+          }
+        },
+        "contextRecall": {
+          "score": 0,
+          "details": {
+            "verdicts": [
+              {
+                "claim": "The provided context does not specify the vector database used.",
+                "attributable": false
+              }
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "averages": {
+    "faithfulness": 0.6666666666666666,
+    "answerRelevance": 0.9629629629629629,
+    "contextPrecision": 0.5,
+    "contextRecall": 0.6666666666666666
+  }
+}

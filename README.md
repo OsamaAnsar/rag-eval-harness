@@ -1,5 +1,10 @@
 # rag-eval-harness
 
+[![CI](https://github.com/OsamaAnsar/rag-eval-harness/actions/workflows/ci.yml/badge.svg)](https://github.com/OsamaAnsar/rag-eval-harness/actions/workflows/ci.yml)
+[![Live report](https://img.shields.io/badge/demo-live%20report-blue)](https://osamaansar.github.io/rag-eval-harness/)
+
+**[Live report →](https://osamaansar.github.io/rag-eval-harness/)** — rendered from `data/sample-dataset.json`, regenerated on every push to `main`.
+
 An LLM-judge evaluation harness for RAG pipelines, implemented in TypeScript. It scores a set of (question, retrieved contexts, generated answer) triples on four axes and produces a regression-gated report:
 
 - **Faithfulness** — decomposes the answer into atomic claims and checks each against the retrieved contexts, catching hallucinations not grounded in the source material.
@@ -38,6 +43,8 @@ npm run eval -- --dataset path/to/data.json --out reports --min-score 0.7
 ```
 
 `--min-score` fails the process (exit code 1) if any averaged metric falls below the threshold — this is what CI uses as a regression gate.
+
+`npm run render:docs` writes `docs/index.html`, a static report page served via GitHub Pages — that's what the live report link above points to.
 
 ## Dataset format
 

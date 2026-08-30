@@ -5,7 +5,7 @@ import { z } from "zod";
 import { FakeJudge } from "./judge/FakeJudge.js";
 import type { Judge } from "./judge/Judge.js";
 import { OpenAIJudge } from "./judge/OpenAIJudge.js";
-import { toMarkdown } from "./report.js";
+import { toHtml, toMarkdown } from "./report.js";
 import { evaluateDataset } from "./runner.js";
 import type { EvalItem } from "./types.js";
 
@@ -79,6 +79,7 @@ async function main(): Promise<void> {
   await mkdir(args.out, { recursive: true });
   await writeFile(path.join(args.out, "report.json"), JSON.stringify(result, null, 2));
   await writeFile(path.join(args.out, "report.md"), toMarkdown(result));
+  await writeFile(path.join(args.out, "index.html"), toHtml(result, new Date(), args.judge));
 
   console.log(toMarkdown(result));
 
